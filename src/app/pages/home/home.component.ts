@@ -22,11 +22,11 @@ export class HomeComponent implements OnInit {
   }
   peoples: PeopleModel[] = []
   ngOnInit(): void {
-   /*  this.ppService.getPeoples().subscribe(resp => {
+    this.ppService.getPeoples().subscribe(resp => {
       console.log(resp)
       this.peoples = resp
     })
- */
+
   }
 
 }
