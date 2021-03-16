@@ -47,7 +47,7 @@ export class PeoplesServicesService {
     const ppArray: PeopleModel[] = []
 
     
-    Object.keys(peopleObj).forEach(key => {
+   /*  Object.keys(peopleObj).forEach(key => {
       
       const people: PeopleModel = peopleObj[key]
       people.id = key
@@ -61,7 +61,7 @@ export class PeoplesServicesService {
       
       return ppArray
 
-    }
+    } */
 
   }
 }
