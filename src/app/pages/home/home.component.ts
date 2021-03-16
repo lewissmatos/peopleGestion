@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleModel } from 'src/app/Models/peopleModel';
 
 @Component({
   selector: 'app-home',
@@ -14,8 +15,18 @@ export class HomeComponent implements OnInit {
 
     setTimeout(() => this.spin = false, 1700)
   }
-  constructor() { }
 
+  people: PeopleModel = new PeopleModel()
+  public nivel: string = ''
+
+
+  constructor() {
+    if (this.people.nivel == true) {
+      this.nivel = 'Bueno'
+    } else {
+      this.nivel = 'Malo'
+    }
+  }
   ngOnInit(): void {
     this.timeOut()
   }

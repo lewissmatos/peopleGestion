@@ -9,13 +9,17 @@ import { PeopleModel } from 'src/app/Models/peopleModel';
 })
 export class PeopleComponent implements OnInit {
 
+  people: PeopleModel = new PeopleModel()  
 
-  people: PeopleModel = new PeopleModel()
-
-  constructor() { }
+  constructor() {
+   
+  }
 
   ngOnInit(): void {
   }
+
+  
+  
 
   spin: boolean = false
   guardar(formData: NgForm) {
