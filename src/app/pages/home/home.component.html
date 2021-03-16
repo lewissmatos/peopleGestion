@@ -1,4 +1,4 @@
-<div class="mt-4">
+<div class=" container mt-4">
     
     <h1>Listado de personas</h1>
      <hr>
@@ -17,7 +17,10 @@
         </div>
     </div>
 
-    <div class="col mt-2">
+
+    <div class="row">
+
+    <div class="col-12 mt-2">
   
       <table class="table ">
         <thead class="thead table-dark ">
@@ -26,6 +29,8 @@
             <th>Nombre</th>
             <th>Profresion</th>
             <th>Nivel</th>
+            <th>Editar</th>
+            <th>eliminar</th>
           </tr>
         </thead>
 
@@ -34,13 +39,26 @@
             <td>1</td>
             <td>Lewis</td>
             <td>Developer</td>            
-            <td>{{nivel}}</td>            
+            <td>{{nivel}}</td> 
+            <td  class="text-center">
+              <button class="btn btn-success">
+              <i class="fa fa-pen"></i>
+              </button>  
+            </td> 
+            <td class="text-center">
+              <button class="btn btn-danger">
+              <i class="fa fa-trash-alt"></i>
+              </button>  
+            </td> 
           </tr>
+          
         </tbody>
         
       </table>
 
     </div>
+    </div>
+
 
     <div class="alert alert-warning text-center mt-4" role="alert">
         <h4 class="alert-heading">No hay registros</h4> 
