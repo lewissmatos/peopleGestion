@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PeopleModel } from 'src/app/Models/peopleModel';
+import { PeoplesServicesService } from '../../services/peoples-services.service';
 
 @Component({
   selector: 'app-people',
@@ -11,27 +12,22 @@ export class PeopleComponent implements OnInit {
 
   people: PeopleModel = new PeopleModel()  
 
-  constructor() {
+  constructor(private ppService: PeoplesServicesService) {
    
   }
 
   ngOnInit(): void {
   }
 
-  
-  
-
   spin: boolean = false
   guardar(formData: NgForm) {
+
     if (formData.invalid) {
       Object.values(formData.controls).forEach(control => control.markAsTouched())
     }
 
-    this.spin = true
-    setTimeout(() => this.spin = false, 1100)
+    this.ppService.createPeople(this.people).subscribe(resp=>console.log(resp))
 
-    console.log(formData)
-    console.log(this.people)
   }
 
 

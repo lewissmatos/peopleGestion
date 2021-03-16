@@ -14,7 +14,7 @@
 
             <div class="col  mt-2">
 
-                <form  (ngSubmit)="guardar(formData)" #formData="ngForm">
+                <form autocomplete="false" (ngSubmit)="guardar(formData)" #formData="ngForm">
 
                     <div class="form-group">
                         
@@ -62,23 +62,28 @@
                         
                     </div>
 
-                    <div class="form-group text-center mt-2" style="width: 100%;">
+                    <div class=" form-group mt-2" style="width: 100%;">
 
                         <b><label class="mt-2">Nivel</label></b> 
+
+                        <div class="col col-12 col-xs-12 form-group text-center">
 
                         <button
                             (click)="people.nivel = true"
                             [ngClass]="{'btn-success': people.nivel , 'btn-outline-success': !people.nivel}"
-                            class="m-2 btn " type="button" style="width: 46%;" >
+                            class="col-6 m-1 btn " type="button" style="width: 40%;" >
                             <i class="fa fa-thumbs-up"></i>
                             Bueno</button>
                      
                         <button 
                             (click)="people.nivel = false"
                             [ngClass]="{'btn-danger': !people.nivel , 'btn-outline-danger': people.nivel}"
-                            class="m-2 btn " type="button" style="width: 46%;" >
+                            class="col-6 m-1 btn " type="button" style="width: 40%;" >
                              <i class="fa fa-thumbs-down"></i>
                             Malo</button>
+
+                        </div>
+                        
                     </div>
 
                     <hr>
