@@ -1,6 +1,6 @@
 <div class=" container mt-4">
     
-    <h1>Listado de personas</h1>
+    <h1>Listado de personas </h1>
      <hr>
 
     <div class="row">
@@ -29,27 +29,18 @@
             <th>Nombre</th>
             <th>Profresion</th>
             <th>Nivel</th>
-            <th>Editar</th>
-            <th>eliminar</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr >
-            <td>1</td>
-            <td>Lewis</td>
-            <td>Developer</td>            
-            <td>{{nivel}}</td> 
-            <td  class="text-center">
-              <button class="btn btn-success">
-              <i class="fa fa-pen"></i>
-              </button>  
-            </td> 
-            <td class="text-center">
-              <button class="btn btn-danger">
-              <i class="fa fa-trash-alt"></i>
-              </button>  
-            </td> 
+          <tr *ngFor="let people of peoples; let i = index" >
+            <td>{{i + 1}}</td>
+            <td>{{people.nombre}}</td>
+            <td>{{people.profesion}}</td>
+            <td >
+              <span *ngIf="people.nivel" class="badge bg-success">Bueno</span>
+              <span *ngIf="!people.nivel" class="badge bg-danger">Malo</span>
+            </td>
           </tr>
           
         </tbody>
@@ -57,27 +48,6 @@
       </table>
 
     </div>
-    </div>
-
-
-    <div class="alert alert-warning text-center mt-4" role="alert">
-        <h4 class="alert-heading">No hay registros</h4> 
-        <p>
-            <i class="fa fa-exclamation"></i>
-        </p>
-       
-    </div>
-
-    <div class="alert alert-info text-center mt-4" role="alert">
-        <h4 class="alert-heading">Cargando</h4> 
-        <p>
-            <i class="fa "
-            [ngClass]="{'fa-sync-alt fa-spin': spin, 'fa-check': !spin}"
-            ></i>
-        </p>
-        <p *ngIf="spin">
-            Espere por favor...
-        </p>
     </div>
 
 </div>

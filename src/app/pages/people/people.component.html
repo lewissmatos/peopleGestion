@@ -1,6 +1,6 @@
 <div class="container mt-4">
     
-    <h1>Persona</h1>
+    <h1>Datos de: <small>{{people.nombre}}</small> </h1>
     <hr>
 
     <div class="row">
@@ -14,17 +14,16 @@
 
             <div class="col  mt-2">
 
-                <form autocomplete="false" (ngSubmit)="guardar(formData)" #formData="ngForm">
+                <form autocomplete="off" (ngSubmit)="guardar(formData)" #formData="ngForm">
 
                     <div class="form-group">
                         
-                        <label>Firebase ID</label>
+                        <b> <label>Firebase ID</label> </b>
 
                         <input class="form-control mt-2"
                             type="text" 
                             style="width: 100%;" 
                             disabled="disabled"
-                            placeholder="Fireabase ID"
                             [(ngModel)]="people.id"
                             name="id">
                         <small class="form-text text-muted mt-2">Campo autogenerado</small>
@@ -35,7 +34,7 @@
                        <b> <label class="mt-2">Nombre</label></b>
                         <input class="form-control mt-2" 
                         type="text" style="width: 100%;" 
-                        placeholder="Nombre"
+                        placeholder="Escriba el nombre"
                         [(ngModel)]="people.nombre"
                         name="nombre"
                         #nombre="ngModel"
@@ -51,12 +50,12 @@
                         <b><label class="mt-2">Profesion</label></b>
                         <input class="form-control mt-2" type="text" 
                         style="width: 100%;"  
-                        placeholder="Profesion"
+                        placeholder="Escriba la profesion"
                         [(ngModel)]="people.profesion"
                         name="profesion"
                         #profesion="ngModel"
                         required
-                        [class.is-invalid]="profesion.invalid && nombre.touched"
+                        [class.is-invalid]="profesion.invalid && profesion.touched"
                         [class.is-valid]="profesion.valid"   
                         >
                         

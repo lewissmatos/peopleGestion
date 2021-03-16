@@ -19,4 +19,49 @@ export class PeoplesServicesService {
       })
     )
   }
+
+  updatePeople(people: PeopleModel) {
+
+    const peopleTemp: any = {
+      ...people
+    }
+
+    delete peopleTemp.id;
+
+    return this.http.put(`${this.url}/peoples/${people.id}.json`, peopleTemp)
+  }
+
+  getPeopleById(id: string) {
+    
+    return this.http.get(`${this.url}/peoples/${id}.json`)
+
+  }
+
+  getPeoples() {
+    return this.http.get(`${this.url}/peoples.json`)
+      .pipe(map (this.peopleArray))      
+  }
+
+  private peopleArray(peopleObj: object) {
+
+    const ppArray: PeopleModel[] = []
+
+    
+    Object.keys(peopleObj).forEach(key => {
+      
+      const people: PeopleModel = peopleObj[key]
+      people.id = key
+
+      ppArray.push(people)
+
+    })
+    if (peopleObj === null) {
+      return []
+    } else {
+      
+      return ppArray
+
+    }
+
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PeopleModel } from 'src/app/Models/peopleModel';
+import { PeoplesServicesService } from '../../services/peoples-services.service';
 
 @Component({
   selector: 'app-home',
@@ -8,27 +9,24 @@ import { PeopleModel } from 'src/app/Models/peopleModel';
 })
 export class HomeComponent implements OnInit {
 
-
-  spin: boolean = true
-
-  timeOut() {
-
-    setTimeout(() => this.spin = false, 1700)
-  }
-
   people: PeopleModel = new PeopleModel()
   public nivel: string = ''
 
-
-  constructor() {
+  constructor(private ppService: PeoplesServicesService) {
     if (this.people.nivel == true) {
       this.nivel = 'Bueno'
     } else {
       this.nivel = 'Malo'
     }
+
   }
+  peoples: PeopleModel[] = []
   ngOnInit(): void {
-    this.timeOut()
+    this.ppService.getPeoples().subscribe(resp => {
+      console.log(resp)
+      this.peoples = resp
+    })
+
   }
 
 }
