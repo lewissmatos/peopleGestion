@@ -1,0 +1,101 @@
+<div class="container mt-4">
+    
+    <h1>Persona</h1>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            
+            <button class="btn btn-outline-danger" style="float: right;"
+            routerLink="/home">
+            <i class="fa fa-arrow-left" style="margin-right: 4px;"></i>Volver
+            </button>
+            <br>
+
+            <div class="col  mt-2">
+
+                <form  (ngSubmit)="guardar(formData)" #formData="ngForm">
+
+                    <div class="form-group">
+                        
+                        <label>Firebase ID</label>
+
+                        <input class="form-control mt-2"
+                            type="text" 
+                            style="width: 100%;" 
+                            disabled="disabled"
+                            placeholder="Fireabase ID"
+                            [(ngModel)]="people.id"
+                            name="id">
+                        <small class="form-text text-muted mt-2">Campo autogenerado</small>
+
+                    </div>
+
+                    <div class="form-group">
+                       <b> <label class="mt-2">Nombre</label></b>
+                        <input class="form-control mt-2" 
+                        type="text" style="width: 100%;" 
+                        placeholder="Nombre"
+                        [(ngModel)]="people.nombre"
+                        name="nombre"
+                        #nombre="ngModel"
+                        required
+                        [class.is-invalid]="nombre.invalid && nombre.touched"
+                        [class.is-valid]="nombre.valid"                        
+                        >
+                        
+                    </div>                
+
+                    <div class="form-group">
+
+                        <b><label class="mt-2">Profesion</label></b>
+                        <input class="form-control mt-2" type="text" 
+                        style="width: 100%;"  
+                        placeholder="Profesion"
+                        [(ngModel)]="people.profesion"
+                        name="profesion"
+                        #profesion="ngModel"
+                        required
+                        [class.is-invalid]="profesion.invalid && profesion.touched"
+                        [class.is-valid]="profesion.valid"   
+                        >
+                        
+                    </div>
+
+                    <div class="form-group text-center mt-2" style="width: 100%;">
+
+                        <b><label class="mt-2">Nivel</label></b> 
+
+                        <button
+                            (click)="people.nivel = true"
+                            [ngClass]="{'btn-success': people.nivel , 'btn-outline-success': !people.nivel}"
+                            class="m-2 btn " type="button" style="width: 46%;" >
+                            <i class="fa fa-thumbs-up"></i>
+                            Bueno</button>
+                     
+                        <button 
+                            (click)="people.nivel = false"
+                            [ngClass]="{'btn-danger': !people.nivel , 'btn-outline-danger': people.nivel}"
+                            class="m-2 btn " type="button" style="width: 46%;" >
+                             <i class="fa fa-thumbs-down"></i>
+                            Malo</button>
+                    </div>
+
+                    <hr>
+
+                    <div class="form-group mt-4 text-center">
+                        <button class="btn btn-outline-primary " type="submit" style="width: 40%;">
+                            <i class="fa fa-save"></i>
+                            Guardar
+                        </button>
+                    </div>
+                
+                 </form>
+                
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

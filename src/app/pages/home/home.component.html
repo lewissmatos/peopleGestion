@@ -1,0 +1,65 @@
+<div class="mt-4">
+    
+    <h1>Listado de personas</h1>
+     <hr>
+
+    <div class="row">
+        <div class="col">
+    
+            <button class="btn btn-outline-primary"  style="float: right;"
+            routerLink="/people/new"
+            >
+                <i class="fa fa-plus" style="margin-right: 3px;"
+                ></i>
+                Agregar
+            </button>
+
+        </div>
+    </div>
+
+    <div class="col mt-2">
+  
+      <table class="table ">
+        <thead class="thead table-dark ">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Profresion</th>
+            <th>Nivel</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr >
+            <td>1</td>
+            <td>Lewis</td>
+            <td>Developer</td>            
+            <td>Intermedio</td>            
+          </tr>
+        </tbody>
+        
+      </table>
+
+    </div>
+
+    <div class="alert alert-warning text-center mt-4" role="alert">
+        <h4 class="alert-heading">No hay registros</h4> 
+        <p>
+            <i class="fa fa-exclamation"></i>
+        </p>
+       
+    </div>
+
+    <div class="alert alert-info text-center mt-4" role="alert">
+        <h4 class="alert-heading">Cargando</h4> 
+        <p>
+            <i class="fa "
+            [ngClass]="{'fa-sync-alt fa-spin': spin, 'fa-check': !spin}"
+            ></i>
+        </p>
+        <p *ngIf="spin">
+            Espere por favor...
+        </p>
+    </div>
+
+</div>
