@@ -56,7 +56,7 @@
                         name="profesion"
                         #profesion="ngModel"
                         required
-                        [class.is-invalid]="profesion.invalid && profesion.touched"
+                        [class.is-invalid]="profesion.invalid && nombre.touched"
                         [class.is-valid]="profesion.valid"   
                         >
                         
@@ -85,7 +85,9 @@
 
                     <div class="form-group mt-4 text-center">
                         <button class="btn btn-outline-primary " type="submit" style="width: 40%;">
-                            <i class="fa fa-save"></i>
+                            <i class="fa "
+                            [ngClass]="{'fa-save': !spin, 'fa-sync-alt fa-spin': spin}"
+                            ></i>
                             Guardar
                         </button>
                     </div>

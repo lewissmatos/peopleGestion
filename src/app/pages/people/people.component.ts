@@ -17,10 +17,15 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  spin: boolean = false
   guardar(formData: NgForm) {
     if (formData.invalid) {
       Object.values(formData.controls).forEach(control => control.markAsTouched())
     }
+
+    this.spin = true
+    setTimeout(() => this.spin = false, 1100)
+
     console.log(formData)
     console.log(this.people)
   }
